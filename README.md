@@ -21,18 +21,18 @@ Requirements
 * [Docker](https://docs.docker.com/get-docker/)
 * [Docker Compose](https://docs.docker.com/compose/)
 
-1. How to use
+How to use
 ----------------
-a. Pull the repository
-b. Create a project in your Google account.
-c. Create OAuth 2.0 Client IDs
+* a. Pull the repository
+* b. Create a project in your Google account.
+* c. Create OAuth 2.0 Client IDs
 	- download credentials.json and copy it to the ./auth folder
-d. Add test user to the Google App
-e. From the .auth folder run 'google-auth.py'
+* d. Add test user to the Google App
+* e. From the .auth folder run 'google-auth.py'
 	- authenticate with Google in the browser, using test user credentials
-f. Confirm that 'token.pickle' file is generated
-g. Run "docker compose up -d"
+* f. Confirm that 'token.pickle' file is generated
+* g. Run "docker compose up -d"
 	- docker container will be started
-h. Check 'cal.html' file generated in the ./www folder
+* h. Check 'cal.html' file generated in the ./www folder
 	- file will be re-generated every 53 minutes, when container is running
 
