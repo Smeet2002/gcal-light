@@ -1,0 +1,22 @@
+services:
+  gcallight:
+    build:
+      context: .
+      dockerfile: Dockerfile.gcal-light 
+    restart: unless-stopped
+    environment:
+      TZ: America/New_York
+    command: bash -c "
+     chmod 0744 /scripts/*
+     && python3 /scripts/gcal-light.py
+     "
+    volumes:
+     - ./scripts:/scripts
+     - ./www:/www
+     - /etc/timezone:/etc/timezone:ro
+     - /etc/localtime:/etc/localtime:ro  
+    secrets:
+            - token.pickle
+secrets:
+     token.pickle:
+        file: ./auth/token.pickle

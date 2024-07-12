@@ -1,0 +1,20 @@
+# Ignore credentials and token files
+auth/credentials.json
+auth/token.pickle
+
+# Ignore generated HTML files
+www/cal.html
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Docker-related files
+docker-compose.override.yml
+.env
+
+# Ignore other common files
+.DS_Store
+Thumbs.db
+
