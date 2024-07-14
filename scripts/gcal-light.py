@@ -77,15 +77,29 @@ def create_html_page():
     tmax = (now + timedelta(days=6*30)).isoformat() + 'Z'  # 6 months after now
     tnow = now.isoformat() + 'Z'  # now
     # create page
-    page_begin = '<html><head><link rel="stylesheet" type="text/css" href="style.css"></head><body><pre>'
+    page_begin = '''<html><head>
+                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                 <style type="text/css">
+                 pre { white-space: pre-wrap; }
+                 .ef0,.f0 { color: #000000; } .eb0,.b0 { background-color: #000000; }
+                 .ef1,.f1 { color: #AA0000; } .eb1,.b1 { background-color: #AA0000; }
+                 .ef2,.f2 { color: #00AA00; } .eb2,.b2 { background-color: #00AA00; }
+                 .ef3,.f3 { color: #AA5500; } .eb3,.b3 { background-color: #AA5500; }
+                 .ef4,.f4 { color: #0000AA; } .eb4,.b4 { background-color: #0000AA; }
+                 .ef5,.f5 { color: #AA00AA; } .eb5,.b5 { background-color: #AA00AA; }
+                 .ef6,.f6 { color: #00AAAA; } .eb6,.b6 { background-color: #00AAAA; }
+                 .ef7,.f7 { color: #AAAAAA; } .eb7,.b7 { background-color: #AAAAAA; }
+                 </style>
+                 </head>
+                 <body><pre>'''
     page_end = '\n</pre></body></html>'
     b = list_calendar_events(tmin, tnow)
     a = list_calendar_events(tnow, tmax)
-    l = "------------------------------------------------------------------"
+    ln = "------------------------------------------------------------------"
     generated_on = now.strftime('%Y-%m-%d')
     generated_at = now.strftime('%H:%M:%S')
     footer = f'\nGenerated on {generated_on} at {generated_at}'
-    page_html = page_begin + b + l + a + footer + page_end
+    page_html = page_begin + b + ln + a + footer + page_end
     return(page_html)
 
 
