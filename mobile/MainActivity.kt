@@ -1,3 +1,5 @@
+
+
 package com.example.mygooglecalendar
 
 import android.os.Bundle
@@ -5,6 +7,7 @@ import androidx.activity.ComponentActivity
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 
 
 class MainActivity : ComponentActivity() {
@@ -14,6 +17,7 @@ class MainActivity : ComponentActivity() {
 
 
         val webView = findViewById<WebView>(R.id.webview)
+        val refreshButton = findViewById<Button>(R.id.refresh_button)
 
         webView.settings.javaScriptEnabled = false
         webView.settings.useWideViewPort = true
@@ -31,10 +35,14 @@ class MainActivity : ComponentActivity() {
 
         }
 
-        val url = "<URL>"  // Replace with your URL
-        val username = "<USERNAME>"   // Replace with your username
-        val password = "<PASSWORD>"   // Replace with your password
+        val url = "https://<your_domain>/<your_page>"  // Replace with your URL
+        val username = "<username>"   // Replace with your username
+        val password = "<password>"   // Replace with your password
         val auth = "Basic " + android.util.Base64.encodeToString("$username:$password".toByteArray(), android.util.Base64.NO_WRAP)
         webView.loadUrl(url, mapOf("Authorization" to auth))
+
+        refreshButton.setOnClickListener {
+            webView.loadUrl(url, mapOf("Authorization" to auth))
+        }
     }
 }
