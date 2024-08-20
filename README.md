@@ -27,7 +27,7 @@ How to use
 * b. Create a project in your Google account.
 * c. Create OAuth 2.0 Client IDs
 	- download credentials.json and copy it to the ./auth folder
-* d. Add test user to the Google App
+* d. Add test user to the Google App ( !! see Update from August 2024 below !! )
 * e. From the ./auth folder run 'google-auth.py'
 	- authenticate with Google in the browser, using test user credentials
 * f. Confirm that 'token.pickle' file is generated
