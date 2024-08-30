@@ -27,7 +27,7 @@ How to use
 * b. Create a project in your Google account.
 * c. Create OAuth 2.0 Client IDs
 	- download credentials.json and copy it to the ./auth folder
-* d. Add test user to the Google App
+* d. Add test user to the Google App ( !! see Update from August 2024 below !! )
 * e. From the ./auth folder run 'google-auth.py'
 	- authenticate with Google in the browser, using test user credentials
 * f. Confirm that 'token.pickle' file is generated
@@ -35,5 +35,16 @@ How to use
 	- docker container will be started
 * h. Check 'cal.html' file generated in the ./www folder
 	- file will be re-generated every 57 minutes, when container is running
-UPDATE 2024-08
-*  Added activity_settings.xml and SettingsActivity.kt to be able to edit url, username and password 
+
+Update From August 2024
+------------------------
+
+If the Google App is not published, it will reset the password every 7 days. You need to publish the app to avoid generating a new token.pickle file every week.
+
+    Go to: https://console.cloud.google.com/apis/dashboard
+    Select your project.
+    Navigate to OAuth Consent Screen.
+    Change the Publishing Status from 'Testing' to 'In Production'.
+
+At this point, the test user is irrelevant. During Google Authentication, the 'Unverified App' screen will appear. You will need to bypass the 'Unverified App' screen in the same way you would ignore an invalid SSL certificate for HTTPS.
+
