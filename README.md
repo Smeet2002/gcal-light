@@ -35,4 +35,5 @@ How to use
 	- docker container will be started
 * h. Check 'cal.html' file generated in the ./www folder
 	- file will be re-generated every 57 minutes, when container is running
-
+UPDATE 2024-08
+*  Added activity_settings.xml and SettingsActivity.kt to be able to edit url, username and password 
